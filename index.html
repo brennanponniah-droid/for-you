@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Question</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffe4e1;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+        }
+        #container {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        h1 { color: #d63384; }
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        button {
+            padding: 10px 25px;
+            font-size: 1.2rem;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #yesBtn { background-color: #ff69b4; color: white; }
+        #noBtn { background-color: #ced4da; color: #495057; position: relative; }
+        .hidden { display: none; }
+        img { width: 150px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <div id="askSection">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHpndW1yZmxueW93Nm12Z3B6bmZ6bmZ6bmZ6bmZ6bmZ6bmZ6bmZ6ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/c7uXNHOJ7p8T6/giphy.gif" alt="Cute heart">
+            <h1>Will you be my Valentine?</h1>
+            <div class="buttons">
+                <button id="yesBtn" onclick="celebrate()">YES!</button>
+                <button id="noBtn" onmouseover="moveButton()">No</button>
+            </div>
+        </div>
+
+        <div id="successSection" class="hidden">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3ZhcGV4Nm5reWc4bmZ6bmZ6bmZ6bmZ6bmZ6bmZ6bmZ6bmZ6ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/26FLdmIp6wJr91JAI/giphy.gif" alt="Happy dance">
+            <h1>Yay! See you on the 14th! ❤️</h1>
+        </div>
+    </div>
+
+    <script>
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            btn.style.position = 'absolute';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        function celebrate() {
+            document.getElementById('askSection').classList.add('hidden');
+            document.getElementById('successSection').classList.remove('hidden');
+            document.body.style.backgroundColor = '#ff69b4';
+        }
+    </script>
+</body>
+</html>
